@@ -1,0 +1,14 @@
+# AkOps Labs check. Please don't edit: AkOps Labs reads the result of this workflow.
+name: AkOps check
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, run and test the container
+        run: bash tests/check.sh
